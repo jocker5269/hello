@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday, My Love</title>
+
+  <style>
+  body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#ffe6f2; /* deep night sky */
+    color:#b30059;
+    overflow-x:hidden;
+  }
+  header{
+    text-align:center;
+    padding:60px 20px;
+  }
+  h1{
+    font-size:3rem;
+    color:#ff9bd1;
+    text-shadow:0 0 12px rgba(255,150,200,0.8);
+  }
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+  }
+  .photo{
+    width:100%;
+    height:280px;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(255,100,200,0.3);
+  }
+
+  /* Night sky stars */
+ 
+
+  @keyframes twinkle{
+    0%{opacity:0.3;}
+    50%{opacity:1;}
+    100%{opacity:0.3;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎉 Happy Birthday, Bristi! 🎉</h1>
+  <p style="font-size:1.3rem;margin-top:10px;">Today is all about you — the most beautiful girl in my world. ❤️</p>
+</header>
+
+<!-- Photo Slideshow -->
+<div class="slideshow" style="position:relative;max-width:400px;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 0 25px rgba(255,150,200,0.4);">
+  <img class="slide" src="photo 5.jpg" style="width:100%;display:block;">
+  <img class="slide" src="photo 6.jpg" style="width:100%;display:none;">
+  <img class="slide" src="photo 7.jpg" style="width:100%;display:none;">
+  <img class="slide" src="photo 8.jpg" style="width:100%;display:none;">
+</div>
+
+<!-- Music Player -->
+<audio id="bgMusic" src="vaaram_bgm.mp3"></audio>
+<div style="text-align:center;margin-top:10px;">
+  <button id="playMusicBtn" style="padding:12px 20px;border:none;border-radius:12px;background:#ff7eb3;color:white;font-size:1rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">▶ Play Music</button>
+</div>
+
+<div id="hearts"></div>
+
+<section class="message-card">
+    <center>
+  <h2>To My Girlfriend</h2><hr>
+  </center>
+  <marquee>
+  <p>
+    On this special day, I just want to remind you how much you mean to me. You make my days brighter, my heart lighter, and my life happier. <br><br>
+    </p></marquee><hr>
+    <p>
+    <center>💕 I hope your birthday is as magical as you are. 💕</center>
+  </p>
+</section>
+
+<section class="gallery">
+  <div class="photo"><span title="Will"><img src="photo 1.jpg" alt="Photo 1" style="width:100%;height:100%;object-fit:cover;"></span></div>
+  <div class="photo"><span title="You"><img src="photo 2.jpg" alt="Photo 2" style="width:100%;height:100%;object-fit:cover;"></span></div>
+  <div class="photo"><span title="Marry"><img src="photo 3.jpg" alt="Photo 3" style="width:100%;height:100%;object-fit:cover;"></span></div>
+  <div class="photo"><span title="Me"><img src="photo 4.jpg" alt="Photo 4" style="width:100%;height:100%;object-fit:cover;"></span></div>
+</section>
+
+<footer>
+  Made with ❤️ for you
+</footer>
+
+<script>
+  // generate floating hearts
+  function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '100vh';
+    heart.style.scale = Math.random() * 0.6 + 0.4;
+    heart.style.opacity = Math.random() * 0.8 + 0.2;
+    heart.style.animationDuration = (Math.random()*4 + 4) + 's';
+
+    document.getElementById('hearts').appendChild(heart);
+
+    setTimeout(()=>heart.remove(), 7000);
+  }
+
+  setInterval(createHeart, 400);
+</script>
+
+<!-- Surprise Button -->
+<div style="text-align:center;margin:40px 0;">
+  <button id="surpriseBtn" style="padding:14px 26px;border:none;border-radius:14px;background:#ffdd59;color:#8e44ad;font-weight:bold;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,0.2);">🎁 Click for a Surprise</button>
+</div>
+
+<script>
+  document.getElementById('playMusicBtn').addEventListener('click',()=>{
+    const music = document.getElementById('bgMusic');
+    music.play();
+  });
+
+  document.getElementById('surpriseBtn').addEventListener('click',()=>{
+    const surprise = document.createElement('div');
+    surprise.innerHTML = '🎉 Happy Birthday Bristi! ❤️ You are my biggest joy.';
+    surprise.style.position = 'fixed';
+    surprise.style.top = '50%';
+    surprise.style.left = '50%';
+    surprise.style.transform = 'translate(-50%, -50%) scale(0.5)';
+    surprise.style.padding = '30px 40px';
+    surprise.style.background = 'rgba(255,255,255,0.2)';
+    surprise.style.backdropFilter = 'blur(10px)';
+    surprise.style.borderRadius = '20px';
+    surprise.style.fontSize = '1.6rem';
+    surprise.style.color = 'black';
+    surprise.style.textAlign = 'center';
+    surprise.style.opacity = '0';
+    surprise.style.transition = 'all 0.8s ease';
+    surprise.style.zIndex = '9999';
+
+    document.body.appendChild(surprise);
+
+    // Fade + scale in
+    requestAnimationFrame(()=>{
+      surprise.style.opacity = '1';
+      surprise.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    // Add floating hearts
+    for(let i=0;i<20;i++){
+      const h = document.createElement('div');
+      h.classList.add('heart');
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.top = '100vh';
+      h.style.animationDuration = (Math.random()*3 + 3)+'s';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(), 6000);
+    }
+
+    // Fade out
+    setTimeout(()=>{
+      surprise.style.opacity = '0';
+      surprise.style.transform = 'translate(-50%, -50%) scale(0.6)';
+      setTimeout(()=>surprise.remove(), 800);
+    }, 3000);
+  });
+</script>
+<!-- Magical Enhancements: Confetti + Sparkle Trails + Floating Birthday Text -->
+<script>
+  /* Confetti burst */
+  function launchConfetti(){
+    for(let i=0;i<40;i++){
+      const c = document.createElement('div');
+      c.style.position='fixed';
+      c.style.width='10px';
+      c.style.height='10px';
+      c.style.background=`hsl(${Math.random()*360},90%,60%)`;
+      c.style.top='50%';
+      c.style.left='50%';
+      c.style.borderRadius='4px';
+      c.style.transform=`translate(-50%,-50%) scale(${Math.random()*1+0.5})`;
+      c.style.opacity='1';
+      c.style.zIndex='9999';
+      c.style.transition='all 1.6s ease-out';
+      document.body.appendChild(c);
+      requestAnimationFrame(()=>{
+        c.style.top = (Math.random()*100)+'vh';
+        c.style.left = (Math.random()*100)+'vw';
+        c.style.opacity='0';
+      });
+      setTimeout(()=>c.remove(),1700);
+    }
+  }
+
+  /* Sparkle cursor trail */
+  document.addEventListener('mousemove', e => {
+    const s = document.createElement('div');
+    s.style.position='fixed';
+    s.style.width='8px';
+    s.style.height='8px';
+    s.style.borderRadius='50%';
+    s.style.background='rgba(255,255,255,0.9)';
+    s.style.left=e.clientX+'px';
+    s.style.top=e.clientY+'px';
+    s.style.boxShadow='0 0 12px white';
+    s.style.pointerEvents='none';
+    s.style.zIndex='9999';
+    s.style.opacity='1';
+    s.style.transition='opacity 0.6s ease, transform 0.6s ease';
+    document.body.appendChild(s);
+    requestAnimationFrame(()=>{
+      s.style.opacity='0';
+      s.style.transform='scale(2)';
+    });
+    setTimeout(()=>s.remove(),650);
+  });
+
+  /* Floating birthday text */
+  function floatingText(){
+    const t = document.createElement('div');
+    t.textContent = '🎂 Happy Birthday Bristi ❤️';
+    t.style.position='fixed';
+    t.style.left=(Math.random()*80+10)+'vw';
+    t.style.top='100vh';
+    t.style.color='black';
+    t.style.fontSize='1.6rem';
+    t.style.textShadow='0 4px 14px rgba(0,0,0,0.3)';
+    t.style.opacity='0';
+    t.style.transition='all 3s ease-out';
+    t.style.zIndex='9998';
+    document.body.appendChild(t);
+    requestAnimationFrame(()=>{
+      t.style.top='-10vh';
+      t.style.opacity='1';
+    });
+    setTimeout(()=>t.remove(),3500);
+  }
+  setInterval(floatingText, 5000);
+
+  /* Enhance Surprise Button to trigger confetti */
+  const originalSurprise = document.getElementById('surpriseBtn').onclick;
+  document.getElementById('surpriseBtn').onclick = ()=>{
+    if(originalSurprise) originalSurprise();
+    launchConfetti();
+  }
+</script>
+
+<!-- Sakura Petals + Slideshow Script -->
+<script>
+// Slideshow
+let slideIndex = 0;
+function showSlides(){
+  let slides = document.querySelectorAll('.slide');
+  slides.forEach(s => s.style.display = 'none');
+  slideIndex++;
+  if(slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex-1].style.display = 'block';
+  setTimeout(showSlides, 3500);
+}
+showSlides();
+
+// Falling Sakura Petals
+function createPetal(){
+  const petal = document.createElement('div');
+  petal.innerHTML = '🌸';
+  petal.style.position = 'fixed';
+  petal.style.left = Math.random()*100 + 'vw';
+  petal.style.top = '-5vh';
+  petal.style.fontSize = (Math.random()*16 + 14) + 'px';
+  petal.style.opacity = '0.8';
+  petal.style.pointerEvents = 'none';
+  petal.style.zIndex = '9999';
+  petal.style.animation = `fall ${Math.random()*5+6}s linear`;
+  document.body.appendChild(petal);
+  setTimeout(()=>petal.remove(), 12000);
+}
+setInterval(createPetal, 500);
+
+</script>
+
+<style>
+@keyframes fall{
+  0%{ transform: translateX(0) rotate(0deg); }
+  50%{ transform: translateX(20px) rotate(180deg); }
+  100%{ transform: translateY(110vh) translateX(-20px) rotate(360deg); }
+}
+</style>
+
+</body>
+</html>
